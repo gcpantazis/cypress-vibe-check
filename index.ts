@@ -2,4 +2,4 @@
 export * from "./src";
 
 // Also explicitly re-export the command types for better discovery
-export * from "./src/cypress/commands";
+export * from "./src/cypress/commands/types";
