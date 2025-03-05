@@ -13,6 +13,6 @@
     "rootDir": ".",
     "sourceMap": true
   },
-  "include": ["src/**/*.ts", "index.ts", "cypress/**/*.ts", "index.d.ts"],
+  "include": ["src/**/*.ts", "index.ts", "cypress/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
