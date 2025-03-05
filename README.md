@@ -1,5 +1,8 @@
 # Cypress Vibe Check
 
+![](https://github.com/user-attachments/assets/a5033987-e864-4017-94b8-81a2fafdc07f)
+
+
 LLM-based visual testing for Cypress, using OpenAI and Anthropic to evaluate UI against specifications.
 
 ## What is Vibe Check?
