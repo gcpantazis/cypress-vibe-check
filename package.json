@@ -17,7 +17,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "src/cypress/commands/index.d.ts"
   ],
   "keywords": [
     "cypress",
