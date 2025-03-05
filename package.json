@@ -15,6 +15,7 @@
     "prepublishOnly": "yarn clean && yarn build"
   },
   "files": [
+    "index.d.ts",
     "dist",
     "README.md",
     "LICENSE"
