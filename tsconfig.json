@@ -11,8 +11,14 @@
     "declaration": true,
     "outDir": "./dist",
     "rootDir": ".",
-    "sourceMap": true
+    "sourceMap": true,
+    "composite": true,
+    "declarationMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "index.ts", "cypress/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "index.ts", "cypress/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
