@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference path="./commands/index.d.ts" />
 
 /**
  * This file exports all the Cypress commands and ensures type definitions are correctly loaded.
