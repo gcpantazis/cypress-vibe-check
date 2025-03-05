@@ -1,0 +1,57 @@
+{
+  "name": "cypress-vibe-check",
+  "version": "1.0.0",
+  "description": "LLM-based visual testing for Cypress, using OpenAI and Claude to evaluate UI against specifications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "yarn cypress:run && test:validate-api",
+    "test:validate-api": "ts-node src/tools/validate-api.ts",
+    "build": "yarn clean && tsc",
+    "clean": "rimraf dist",
+    "prepublishOnly": "yarn clean && yarn build"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "cypress",
+    "cypress-plugin",
+    "visual-testing",
+    "visual-regression",
+    "llm",
+    "openai",
+    "anthropic",
+    "claude",
+    "testing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cypress-vibe-check"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/cypress-vibe-check/issues"
+  },
+  "homepage": "https://github.com/yourusername/cypress-vibe-check#readme",
+  "devDependencies": {
+    "@types/cypress": "^1.1.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.13.8",
+    "cypress": "^14.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "cypress": ">=14"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.3.0"
+  }
+}

@@ -1,0 +1,6 @@
+node_modules
+cypress/screenshots
+dist
+dist-cypress
+.DS_Store
+.env
