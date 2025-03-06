@@ -8,7 +8,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "test": "yarn cypress:run && test:validate-api",
+    "test": "yarn cypress:run && yarn test:validate-api",
     "test:validate-api": "ts-node src/tools/validate-api.ts",
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
@@ -51,7 +51,6 @@
     "cypress": ">=14"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "fs-extra": "^11.3.0"
+    "dotenv": "^16.4.7"
   }
 }

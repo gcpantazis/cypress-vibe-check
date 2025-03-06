@@ -9,7 +9,7 @@
  */
 
 import path from "path";
-import fs from "fs-extra";
+import fs from "fs";
 import { AnthropicProvider } from "../providers/anthropic-provider";
 import { OpenAIProvider } from "../providers/openai-provider";
 import { ENV_VARS, getApiKey, validateEnv } from "../utils/env";
@@ -30,17 +30,12 @@ const TEST_IMAGE_PATH = path.resolve(
 async function ensureTestImage() {
   const testDirPath = path.dirname(TEST_IMAGE_PATH);
 
-  // Create test-assets directory if it doesn't exist
-  if (!fs.existsSync(testDirPath)) {
-    await fs.mkdir(testDirPath, { recursive: true });
-  }
-
   // Create a simple test image if it doesn't exist
   if (!fs.existsSync(TEST_IMAGE_PATH)) {
     console.log("Creating test image...");
     // Create a blank test image - this is just a placeholder
     // In a real scenario, you'd use a more meaningful test image
-    await fs.writeFile(TEST_IMAGE_PATH, "Test Image");
+    fs.writeFileSync(TEST_IMAGE_PATH, "Test Image");
   }
 }
 

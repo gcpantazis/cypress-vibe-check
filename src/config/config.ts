@@ -1,5 +1,12 @@
 import { LLMProviderConfig, LLMProviderType } from "../types/llm";
 
+// Type guard for Cypress global object
+declare global {
+  interface Window {
+    Cypress?: any;
+  }
+}
+
 /**
  * Unified configuration for the visual testing framework
  */
@@ -88,8 +95,8 @@ export function loadConfig(): VibeConfig {
   // Try to get Cypress configuration
   try {
     // In browser context (Cypress tests)
-    if (typeof Cypress !== "undefined") {
-      const cypressVibeConfig = Cypress.env("vibe") || {};
+    if (typeof window !== "undefined" && window.Cypress) {
+      const cypressVibeConfig = window.Cypress.env("vibe") || {};
 
       // Override with any settings from Cypress config
       if (cypressVibeConfig.defaultProvider) {

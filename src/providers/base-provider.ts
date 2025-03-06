@@ -1,4 +1,6 @@
-import fs from "fs-extra";
+import fs from "fs";
+// Import pathExists directly from the source file to avoid circular dependencies
+import { pathExists } from "../utils/fs-utils";
 import {
   EvaluateOptions,
   LLMProvider,
@@ -77,7 +79,7 @@ export abstract class BaseLLMProvider implements LLMProvider {
       // If there's a problem, it will be caught during the actual evaluation
     } else {
       // In Node.js environments, we can check if the file exists
-      if (!(await fs.pathExists(screenshotPath))) {
+      if (!(await pathExists(screenshotPath))) {
         throw new Error(`Screenshot does not exist at path: ${screenshotPath}`);
       }
     }
@@ -168,8 +170,7 @@ export abstract class BaseLLMProvider implements LLMProvider {
       );
       return ""; // This will be overridden by actual implementation in Cypress
     } else {
-      // In Node.js context, use fs-extra
-      const imageBuffer = await fs.readFile(filePath);
+      const imageBuffer = fs.readFileSync(filePath);
       return imageBuffer.toString("base64");
     }
   }

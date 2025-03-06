@@ -1,6 +1,8 @@
-import fs from "fs-extra";
+import fs from "fs";
+// Import directly from source files to avoid circular dependencies
 import { initializeLLMService } from "../utils/llm-initializer";
 import { llmService } from "../utils/llm-service";
+import { ensureDirSync } from "../utils/fs-utils";
 
 // Initialize LLM service only in Node.js context
 let llmServiceInitialized = false;
@@ -39,7 +41,7 @@ export function setupCypressVibeCheck(
     // Task to ensure a directory exists
     ensureDir(dirPath) {
       try {
-        fs.ensureDirSync(dirPath);
+        ensureDirSync(dirPath);
         return null; // Cypress tasks must return null or a serializable value
       } catch (error) {
         console.error(`Error creating directory ${dirPath}:`, error);
