@@ -75,7 +75,6 @@ describe("Vibe Check Demo", () => {
 
   it("should verify an email input field using vibeCheck", () => {
     cy.get(".action-email")
-      .should("be.visible")
       .vibeCheck("This is an input field for email address entry");
   });
 
@@ -91,6 +90,7 @@ describe("Vibe Check Demo", () => {
   it("should be able to chain commands after a passing vibeCheck", () => {
     cy.get(".action-email")
       .vibeCheck("This is an input field for entering email addresses")
+      // Perform some regular cypress actions and checks.
       .type("test@example.com")
       .should("have.value", "test@example.com");
   });
